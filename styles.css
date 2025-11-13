@@ -1,15 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: system-ui, sans-serif;
-  max-width: 800px;
-  margin: 40px auto;
   line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  transition: background-color 2s ease;
+}
+
+.desert-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+body.light-mode .desert-background {
+  background: linear-gradient(to bottom, 
+    #87CEEB 0%, 
+    #B0E0E6 30%, 
+    #F0E68C 60%, 
+    #DEB887 100%);
+}
+
+body.dark-mode .desert-background {
+  background: linear-gradient(to bottom, 
+    #0a0e27 0%, 
+    #1a1a3e 30%, 
+    #2d2d5f 60%, 
+    #3a3a6e 100%);
+}
+
+.sun {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FDB813 0%, #FF8C00 100%);
+  box-shadow: 0 0 60px rgba(253, 184, 19, 0.8);
+  top: 10%;
+  right: 15%;
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+body.light-mode .sun {
+  opacity: 1;
+  animation: pulse-sun 4s ease-in-out infinite;
+}
+
+@keyframes pulse-sun {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.moon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #F0F0F0 0%, #C0C0C0 100%);
+  box-shadow: 0 0 40px rgba(240, 240, 240, 0.6),
+              inset -10px -10px 20px rgba(150, 150, 150, 0.3);
+  top: 10%;
+  right: 15%;
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+body.dark-mode .moon {
+  opacity: 1;
+  animation: pulse-moon 5s ease-in-out infinite;
+}
+
+@keyframes pulse-moon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+body.dark-mode .stars {
+  opacity: 1;
+}
+
+.stars::before,
+.stars::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 
+    100px 100px white, 200px 150px white, 50px 200px white,
+    300px 80px white, 400px 120px white, 150px 250px white,
+    500px 180px white, 250px 50px white, 350px 220px white,
+    450px 90px white, 550px 140px white, 80px 300px white,
+    180px 180px white, 280px 280px white, 380px 60px white,
+    480px 200px white, 120px 120px white, 220px 320px white,
+    320px 160px white, 420px 240px white, 520px 100px white,
+    600px 180px white, 60px 80px white, 160px 140px white,
+    260px 200px white, 360px 260px white, 460px 40px white,
+    560px 120px white, 140px 340px white, 240px 100px white,
+    340px 180px white, 440px 280px white, 540px 60px white,
+    90px 220px white, 190px 260px white, 290px 140px white,
+    390px 200px white, 490px 160px white, 590px 220px white;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.dune {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transition: all 2s ease;
+}
+
+.dune-1 {
+  height: 250px;
+  background: linear-gradient(to bottom right, transparent 49.5%, #C2B280 49.5%);
+  right: 0;
+  width: 40%;
+  z-index: 4;
+}
+
+.dune-2 {
+  height: 200px;
+  background: linear-gradient(to bottom left, transparent 49.5%, #D2B48C 49.5%);
+  left: 0;
+  width: 50%;
+  z-index: 3;
+}
+
+.dune-3 {
+  height: 180px;
+  background: linear-gradient(to bottom right, transparent 49.5%, #A89968 49.5%);
+  right: 30%;
+  width: 45%;
+  z-index: 2;
+}
+
+.dune-4 {
+  height: 150px;
+  background: linear-gradient(to bottom left, transparent 49.5%, #B8A578 49.5%);
+  left: 25%;
+  width: 40%;
+  z-index: 1;
+}
+
+body.dark-mode .dune-1 {
+  background: linear-gradient(to bottom right, transparent 49.5%, #5a5a78 49.5%);
+}
+
+body.dark-mode .dune-2 {
+  background: linear-gradient(to bottom left, transparent 49.5%, #4a4a68 49.5%);
+}
+
+body.dark-mode .dune-3 {
+  background: linear-gradient(to bottom right, transparent 49.5%, #3a3a58 49.5%);
+}
+
+body.dark-mode .dune-4 {
+  background: linear-gradient(to bottom left, transparent 49.5%, #2a2a48 49.5%);
+}
+
+.oasis {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 150px;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+body.light-mode .oasis {
+  opacity: 1;
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, 
+    rgba(64, 164, 223, 0.8) 0%, 
+    rgba(100, 180, 230, 0.6) 50%, 
+    rgba(120, 200, 240, 0.3) 100%);
+  border-radius: 50%;
+  animation: water-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes water-shimmer {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.palm {
+  position: absolute;
+  bottom: 40px;
+  width: 8px;
+  height: 80px;
+  background: linear-gradient(to bottom, #8B4513 0%, #654321 100%);
+  border-radius: 4px;
+}
+
+.palm::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 50px;
+  background: 
+    radial-gradient(ellipse 15px 25px at 30% 20%, #228B22 40%, transparent 40%),
+    radial-gradient(ellipse 15px 25px at 50% 0%, #2E8B57 40%, transparent 40%),
+    radial-gradient(ellipse 15px 25px at 70% 20%, #32CD32 40%, transparent 40%),
+    radial-gradient(ellipse 12px 25px at 20% 40%, #228B22 40%, transparent 40%),
+    radial-gradient(ellipse 12px 25px at 80% 40%, #2E8B57 40%, transparent 40%);
+}
+
+.palm-1 {
+  left: 20%;
+  animation: sway 4s ease-in-out infinite;
+}
+
+.palm-2 {
+  left: 50%;
+  transform: translateX(-50%);
+  height: 90px;
+  animation: sway 3.5s ease-in-out infinite 0.5s;
+}
+
+.palm-3 {
+  right: 20%;
+  animation: sway 4.2s ease-in-out infinite 1s;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-switch-checkbox {
+  display: none;
+}
+
+.theme-switch-label {
+  display: block;
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 40px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-switch-checkbox:checked + .theme-switch-label {
+  background: linear-gradient(135deg, #1a1a3e 0%, #0a0e27 100%);
+}
+
+.theme-switch-switch {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.theme-switch-checkbox:checked + .theme-switch-label .theme-switch-switch {
+  transform: translateX(40px);
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 100px auto 40px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s ease;
+}
+
+body.dark-mode .content {
+  background: rgba(30, 30, 50, 0.85);
+  color: #e0e0e0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  transition: color 0.5s ease;
+}
+
+body.dark-mode h1 {
+  color: #f0f0f0;
 }
 
 h2 {
   margin-top: 2rem;
+  color: #34495e;
+  transition: color 0.5s ease;
+}
+
+body.dark-mode h2 {
+  color: #d0d0d0;
+}
+
+p {
+  color: #555;
+  transition: color 0.5s ease;
+}
+
+body.dark-mode p {
+  color: #b0b0b0;
+}
+
+ul {
+  margin-left: 2rem;
+  color: #666;
+  transition: color 0.5s ease;
+}
+
+body.dark-mode ul {
+  color: #a0a0a0;
+}
+
+@media (hover: hover) {
+  .dune:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+  
+  .palm:hover {
+    animation: sway-fast 1s ease-in-out infinite;
+  }
+  
+  @keyframes sway-fast {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+  }
 }
