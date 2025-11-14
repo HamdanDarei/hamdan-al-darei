@@ -1,4 +1,4 @@
-// Theme toggle logic
+// ===== Theme toggle (light / dark) =====
 const root = document.documentElement;
 const toggleBtn = document.getElementById("theme-toggle");
 
@@ -11,8 +11,6 @@ if (savedTheme === "dark" || savedTheme === "light") {
   }
 }
 
-// If nothing saved, default is light (as in HTML)
-
 if (toggleBtn) {
   toggleBtn.addEventListener("click", () => {
     const current = root.getAttribute("data-theme") || "light";
@@ -24,8 +22,33 @@ if (toggleBtn) {
   });
 }
 
-// Footer year
+// ===== Footer year =====
 const yearSpan = document.getElementById("year");
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear().toString();
 }
+
+// ===== Landing scroll + blur =====
+const landing = document.querySelector(".landing");
+const mainContent = document.getElementById("main-content");
+const landingScrollBtn = document.querySelector(".landing-scroll");
+
+if (landing && mainContent) {
+  // Blur the landing desert once you scroll down a bit
+  window.addEventListener("scroll", () => {
+    const threshold = window.innerHeight * 0.3;
+    if (window.scrollY > threshold) {
+      landing.classList.add("is-scrolled");
+    } else {
+      landing.classList.remove("is-scrolled");
+    }
+  });
+}
+
+if (landingScrollBtn && mainContent) {
+  // Smooth scroll to main content when clicking "Enter Portfolio"
+  landingScrollBtn.addEventListener("click", () => {
+    mainContent.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
