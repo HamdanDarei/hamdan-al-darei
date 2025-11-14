@@ -456,3 +456,146 @@ body {
   color: var(--muted);
   text-align: center;
 }
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Minimalist Desert Landing ===== */
+
+.landing {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: #0f172a;
+}
+
+/* Sky background */
+.landing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.7), transparent 55%),
+    linear-gradient(to bottom, #7dd3fc, #e0f2fe 45%, #fef3c7 100%);
+  transition: background 0.5s ease;
+}
+
+/* Dunes */
+.landing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(150% 120% at 50% 140%,
+      #f97316 0%,
+      #ea580c 35%,
+      #b45309 65%,
+      transparent 70%);
+  transform: translateY(5%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+/* Night version */
+:root[data-theme="dark"] .landing::before {
+  background:
+    radial-gradient(circle at 75% 15%, rgba(248, 250, 252, 0.6), transparent 55%),
+    radial-gradient(circle at 10% 30%, rgba(148, 163, 184, 0.4), transparent 55%),
+    linear-gradient(to bottom, #020617, #020617 45%, #111827 100%);
+}
+
+:root[data-theme="dark"] .landing::after {
+  background:
+    radial-gradient(150% 120% at 50% 140%,
+      #43302b 0%,
+      #1e293b 50%,
+      transparent 70%);
+}
+
+/* When user has scrolled past the landing a bit, blur/fade it */
+.landing.is-scrolled::before,
+.landing.is-scrolled::after {
+  filter: blur(6px) brightness(0.9);
+  transform: translateY(-3%);
+}
+
+/* Landing content card */
+
+.landing-inner {
+  max-width: 780px;
+  padding: 72px 20px 40px;
+  position: relative;
+}
+
+.landing-text {
+  backdrop-filter: blur(14px);
+  background: rgba(248, 250, 252, 0.7);
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 24px 20px 28px;
+}
+
+:root[data-theme="dark"] .landing-text {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(51, 65, 85, 0.9);
+  color: #e5e7eb;
+}
+
+.landing-kicker {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+:root[data-theme="dark"] .landing-kicker {
+  color: #9ca3af;
+}
+
+.landing h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2.1rem, 3.4vw, 2.7rem);
+}
+
+.landing-subtitle {
+  margin: 0 0 20px;
+  color: #4b5563;
+}
+
+:root[data-theme="dark"] .landing-subtitle {
+  color: #9ca3af;
+}
+
+/* Scroll indicator */
+
+.landing-scroll-indicator {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #e5e7eb;
+}
+
+.landing-scroll-indicator .scroll-line {
+  width: 1px;
+  height: 36px;
+  background: rgba(248, 250, 252, 0.7);
+  border-radius: 999px;
+  animation: scrollPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes scrollPulse {
+  0%   { transform: translateY(0); opacity: 0.4; }
+  50%  { transform: translateY(6px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.4; }
+}
+
