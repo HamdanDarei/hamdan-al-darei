@@ -16,7 +16,13 @@
         <span class="logo-text">Hamdan Al Darei</span>
       </div>
 
-      <nav class="nav">
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="main-nav">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
@@ -57,22 +63,27 @@
   <main class="page" id="main-content">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-text">
-        <p class="hero-kicker">Software Engineer • Machine Learning • Data</p>
-        <h1>Building reliable systems and data-driven products.</h1>
-        <p class="hero-subtitle">
-          I’m a Computer Science student at George Washington University, focused on systems,
-          data engineering, and ML. I enjoy turning complex problems into clean, efficient code.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn ghost">Get in Touch</a>
+      <div class="hero-content">
+        <div class="hero-image-wrapper">
+          <img src="images/profile pic.JPG" alt="Hamdan Al Darei" class="hero-image" />
         </div>
+        <div class="hero-text">
+          <p class="hero-kicker">Software Engineer • Machine Learning • Data</p>
+          <h1>Building reliable systems and data-driven products.</h1>
+          <p class="hero-subtitle">
+            I'm a Computer Science student at George Washington University, focused on systems,
+            data engineering, and ML. I enjoy turning complex problems into clean, efficient code.
+          </p>
 
-        <div class="hero-meta">
-          <span>Based in UAE / DC</span>
-          <span>Interested in: Data &amp; ML, Systems, Infrastructure</span>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn ghost">Get in Touch</a>
+          </div>
+
+          <div class="hero-meta">
+            <span>Based in UAE / DC</span>
+            <span>Interested in: Data &amp; ML, Systems, Infrastructure</span>
+          </div>
         </div>
       </div>
     </section>
@@ -100,6 +111,9 @@
       <div class="cards-grid">
 
         <article class="card">
+          <div class="card-image-wrapper">
+            <img src="images/projects/shell.jpg" alt="Mini Shell project" class="card-image" />
+          </div>
           <h3>Mini Shell (C, Unix)</h3>
           <p class="card-tag">Systems • C • Processes</p>
           <p>
@@ -114,6 +128,9 @@
         </article>
 
         <article class="card">
+          <div class="card-image-wrapper">
+            <img src="images/projects/safety.jpg" alt="Safety-First Road Companion" class="card-image" />
+          </div>
           <h3>Safety-First Road Companion</h3>
           <p class="card-tag">Product Idea • Data • Mobile</p>
           <p>
@@ -123,11 +140,14 @@
           <ul class="card-bullets">
             <li>Designed safety-centric routing logic and community hazard reporting</li>
             <li>Explored integration of telemetry and historical incident data</li>
-            <li>Positioned as a “mobile safety companion” rather than pure navigation</li>
+            <li>Positioned as a "mobile safety companion" rather than pure navigation</li>
           </ul>
         </article>
 
         <article class="card">
+          <div class="card-image-wrapper">
+            <img src="images/projects/analytics.jpg" alt="Camel & Livestock Analytics Platform" class="card-image" />
+          </div>
           <h3>Camel &amp; Livestock Analytics Platform</h3>
           <p class="card-tag">Data • Backend • Domain</p>
           <p>
