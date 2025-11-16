@@ -42,9 +42,9 @@ const translations = {
     "nav.contact": "Contact",
 
     "landing.kicker": "Software Engineer & ML Enthusiast",
-    "landing.h1": "From desert skies to data systems.",
+    "landing.h1": "Hamdan Al Darei",
     "landing.subtitle":
-      "I build reliable software and data-driven tools, inspired by the contrast between quiet desert nights and fast-moving technology.",
+      "Software Engineer focused on AI & Machine Learning.",
     "landing.enter": "Enter Portfolio",
     "landing.scroll": "Scroll",
 
@@ -92,9 +92,9 @@ const translations = {
     "nav.contact": "تواصل",
 
     "landing.kicker": "مهندس برمجيات وشغوف بتعلم الآلة",
-    "landing.h1": "من سماء الصحراء إلى نظم البيانات.",
+    "landing.h1": "حمدان الدرعي",
     "landing.subtitle":
-      "أبني برمجيات موثوقة وأدوات تعتمد على البيانات، مستلهماً التباين بين هدوء ليالي الصحراء وسرعة التكنولوجيا.",
+      "مهندس برمجيات مهتم بالذكاء الاصطناعي وتعلم الآلة.",
     "landing.enter": "ادخل إلى الموقع",
     "landing.scroll": "تمرير",
 
