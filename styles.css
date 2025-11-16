@@ -796,10 +796,13 @@ html {
 }
 
 .landing-text {
-  backdrop-filter: blur(14px);
-  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(16px) saturate(1.05);
+  background:
+    radial-gradient(1200px 400px at 50% 0%, rgba(37, 99, 235, 0.10), transparent 60%),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.78));
   border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
   padding: 32px 24px 36px;
 }
 
@@ -810,8 +813,11 @@ html {
 }
 
 :root[data-theme="dark"] .landing-text {
-  background: rgba(15, 23, 42, 0.85);
-  border-color: rgba(51, 65, 85, 0.6);
+  background:
+    radial-gradient(1200px 400px at 50% 0%, rgba(96, 165, 250, 0.14), transparent 60%),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.86), rgba(2, 6, 23, 0.72));
+  border-color: rgba(51, 65, 85, 0.55);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
   color: #e5e7eb;
 }
 
