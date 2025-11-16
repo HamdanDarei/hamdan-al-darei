@@ -277,6 +277,19 @@ body {
   overflow: hidden;
 }
 
+.lang-toggle {
+  margin-left: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: var(--bg-elevated);
+  color: var(--text);
+  height: 28px;
+  min-width: 44px;
+  padding: 0 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
 .theme-toggle .icon {
   font-size: 0.9rem;
   pointer-events: none;
@@ -690,6 +703,30 @@ body {
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+
+/* ===== RTL (Arabic) support - minimal ===== */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="rtl"] .header-inner {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .hero-text,
+[dir="rtl"] .landing-text,
+[dir="rtl"] .section {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-content {
+  direction: rtl;
 }
 
 /* ===== Minimalist Desert Landing ===== */
