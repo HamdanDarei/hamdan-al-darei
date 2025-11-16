@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f4e4c1"/>
+      <stop offset="100%" stop-color="#edd9a2"/>
+    </linearGradient>
+    <linearGradient id="sand2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#efd7a6"/>
+      <stop offset="100%" stop-color="#e7c988"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#sky)"/>
+  <!-- Dunes -->
+  <path d="M0,640 C260,560 460,620 700,590 C980,555 1130,620 1600,560 L1600,900 L0,900 Z" fill="url(#sand)" opacity="0.9"/>
+  <path d="M0,720 C320,640 520,700 820,680 C1120,660 1280,720 1600,660 L1600,900 L0,900 Z" fill="url(#sand2)" opacity="0.9"/>
+  <!-- Palms silhouettes -->
+  <g fill="#2e3a23" opacity="0.4">
+    <path d="M230 620 l10 -120 12 120z"/>
+    <path d="M210 530 c40 -20 70 -10 100 0 -30 5 -50 20 -70 40 -10 -18 -18 -30 -30 -40z"/>
+    <path d="M240 500 c30 -25 70 -25 110 10 -35 -5 -65 5 -95 25 -5 -12 -10 -23 -15 -35z"/>
+  </g>
+</svg>
+
+
