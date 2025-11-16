@@ -758,7 +758,13 @@ html {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("images/dunes-palms.jpg");
+  /* Prefer modern formats but fall back cleanly */
+  background-image: image-set(
+    url("images/dunes-palms.webp") type("image/webp"),
+    url("images/dunes-palms.jpeg") type("image/jpeg"),
+    url("images/dunes-palms.jpg") type("image/jpeg"),
+    url("images/dunes-palms-placeholder.svg") type("image/svg+xml")
+  );
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
